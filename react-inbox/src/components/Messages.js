@@ -10,7 +10,8 @@ class Messages extends Component {
 		<Message
 	key = {x.id}
 	subject= {x.subject}
-	read = {x.read} />))}
+	read = {x.read}
+	selected = {x.selected}/>))}
 
 		</div>
 	)

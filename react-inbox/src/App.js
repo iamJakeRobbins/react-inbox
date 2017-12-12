@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
 import Messages from './components/Messages'
+import Toolbar from './components/Toolbar'
 
 class App extends Component {
 	constructor(props) {
@@ -73,6 +74,7 @@ class App extends Component {
   render() {
     return (
 			<div>
+			<Toolbar />
 				<h1>
 					<Messages messages =  {this.state.data} />
 				</h1>

@@ -5,62 +5,56 @@ class Message extends Component{
 		super(props);
 		this.state = {
 			data: this.props,
-			selected: this.props.selected
+			selected: this.props.selected,
+			starred: this.props.starred
 		}
 	}
-	// selectedState(e){
-	// 	this.state.selected === true ? this.setState({selected:false}) : {selected:true}
-	// }
-	toggleRead(){
+
+	defaultRead(){
 		return this.props.read === true ? 'read' : 'unread'
 	};
-	toggleSelected(){
+
+	defaultSelected(){
 		return this.props.selected === true ? 'selected' : ''
 	};
-	setChecked(){
+
+	defaultStarred() {
+		return this.props.starred === true ? 'star fa fa-star' : 'star fa fa-star-o'
+	}
+
+	defaultChecked(){
 		let selected = this.state.selected
-		 return selected === true ? 'checked' : ""
+		return selected === true ? 'checked' : ""
 	}
-	toggleChecked(){
-		this.state.checked === true ? ! false : true
+
+	defaultLabels() {
+		return this.props.labels.map((labelName) => {
+			return <span class="label label-warning">{labelName}</span>
+		})
 	}
-	selectMessage(a){
-	    let dataDuplicate = this.state.data;
-	    dataDuplicate[a].selected = !dataDuplicate[a].selected;
-	    this.setState({data: dataDuplicate})
-	  }
-	// clickHandler(variable){
-	// 	let poop = this.state.data
-	// 	poop[variable].selected === !poop[variable].selected
-	// 		this.setState({
-	// 			data: poop
-	// 		})
-	// }
 
 	render(){
-		console.log(this.state.selected)
 		return (
-			<div className={`row message ${this.toggleRead()} ${this.toggleSelected()}` }>
+			<div className={`row message ${this.defaultRead()} ${this.defaultSelected()}` }>
 			  <div className="col-xs-1">
 			    <div className="row">
 			      <div className="col-xs-2">
 			        <input type="checkbox"
-								checked = {this.setChecked()}
-								onClick = {this.selectMessage()}
+								checked = {this.defaultChecked()}
 							  />
 			      </div>
 			      <div className="col-xs-2">
-			        <i className="star fa fa-star-o"></i>
+			        <i className={this.defaultStarred()}></i>
 			      </div>
 			    </div>
 			  </div>
 			  <div className="col-xs-11">
-
+						{this.defaultLabels()}
 						{this.props.subject}
-
 			  </div>
 			</div>
 		)
 	}
 }
+
 export default Message;

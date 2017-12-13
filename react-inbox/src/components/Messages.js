@@ -5,18 +5,19 @@ class Messages extends Component {
 
 	render(){
 		return (
-		<div>
-		{this.props.messages.map((x =>
-		<Message
-	key = {x.id}
-	subject= {x.subject}
-	read = {x.read}
-	selected = {x.selected}
-	checked = {this.props.checked}
-	/>))}
-
-		</div>
-	)
+			<div>
+				{this.props.messages.map((x =>
+					<Message
+						key = {x.id}
+						subject= {x.subject}
+						read = {x.read}
+						selected = {x.selected}
+						starred = {x.starred}
+						labels = {x.labels}
+						/>
+				))}
+			</div>
+		)
 	}
 }
 

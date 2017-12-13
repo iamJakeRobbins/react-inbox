@@ -1,3 +1,4 @@
+
 import React, { Component } from 'react';
 class Message extends Component{
 	constructor(props){
@@ -36,7 +37,7 @@ class Message extends Component{
 			    <div className="row">
 			      <div className="col-xs-2">
 			        <input type="checkbox"
-							
+
 							  />
 			      </div>
 			      <div className="col-xs-2">

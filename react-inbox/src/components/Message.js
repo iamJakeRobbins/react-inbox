@@ -21,6 +21,14 @@ class Message extends Component{
 		let selected = this.state.selected
 		 return selected === true ? 'checked' : ""
 	}
+	toggleChecked(){
+		this.state.checked === true ? ! false : true
+	}
+	selectMessage(a){
+	    let dataDuplicate = this.state.data;
+	    dataDuplicate[a].selected = !dataDuplicate[a].selected;
+	    this.setState({data: dataDuplicate})
+	  }
 	// clickHandler(variable){
 	// 	let poop = this.state.data
 	// 	poop[variable].selected === !poop[variable].selected
@@ -37,7 +45,8 @@ class Message extends Component{
 			    <div className="row">
 			      <div className="col-xs-2">
 			        <input type="checkbox"
-
+								checked = {this.setChecked()}
+								onClick = {this.selectMessage()}
 							  />
 			      </div>
 			      <div className="col-xs-2">

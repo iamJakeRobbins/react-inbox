@@ -11,7 +11,9 @@ class Messages extends Component {
 	key = {x.id}
 	subject= {x.subject}
 	read = {x.read}
-	selected = {x.selected}/>))}
+	selected = {x.selected}
+	checked = {this.props.checked}
+	/>))}
 
 		</div>
 	)
